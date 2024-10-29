@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ -z "$1" ]; then
+        echo "err: argument required"
+        exit 1
+fi
+
 echo '[+] Updating system...'
 apt-get update -y
 apt-get upgrade -y
