@@ -1,4 +1,4 @@
-# hf-to-gguf
+# backend-ai
 
 ## 개요
 비교적 저렴한 비용으로 GPU 서버를 deploy 할 수 있는 [runpod.io](https://runpod.io) 서비스를 활용하여 `.safetensors` (`.hf` 라고 부르기도 함) 형식의 AI 모델을 `.gguf` 형식의 모델로 변환하는 자동화 스크립트입니다.
