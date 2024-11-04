@@ -5,17 +5,17 @@ GREEN='\e[32m'
 RESET='\e[0m'
 
 if [ -z "$1" ]; then
-        echo "${RED}[-] err: argument required!${RESET}"
+        echo -e "${RED}[-] err: argument required!${RESET}"
         exit 1
 fi
 
-echo "${GREEN}[+] Updating system...${RESET}"
+echo -e "${GREEN}[+] Updating system...${RESET}"
 apt-get update -y
 apt-get upgrade -y
 apt-get install git wget unzip -y
 cd $HOME
 
-echo "${GREEN}[+] Downloading AI Model...${RESET}"
+echo -e "${GREEN}[+] Downloading AI Model...${RESET}"
 wget 'https://firebasestorage.googleapis.com/v0/b/storage-f1f46.appspot.com/o/download_model.py?alt=media&token=2a13212d-0de4-451d-9dfc-a7c4fc1dbade' -O download_model.py
 python3 -m pip install huggingface_hub
 python3 download_model.py $1
@@ -32,7 +32,7 @@ else
 fi
 LATEST_SNAPSHOT=$(ls -td ${MODEL_BASE_PATH}/* | head -1)
 
-echo "${GREEN}[+] Converting .hf to .gguf...${RESET}"
+echo -e "${GREEN}[+] Converting .hf to .gguf...${RESET}"
 python3 convert_hf_to_gguf.py --outtype f16 "$LATEST_SNAPSHOT"
 cd $HOME
 
@@ -40,8 +40,8 @@ wget 'https://github.com/ggerganov/llama.cpp/releases/download/b3987/llama-b3987
 unzip ./llama-b3987-bin-ubuntu-x64.zip
 cd $HOME/build/bin/
 
-echo "${GREEN}[+] Quantizing model...${RESET}"
+echo -e "${GREEN}[+] Quantizing model...${RESET}"
 LATEST_GGUF_FILE=$(find "$LATEST_SNAPSHOT" -type f -name "*.gguf" -printf "%T@ %p\n" | sort -n | tail -1 | awk '{print $2}')
 ./llama-quantize ${LATEST_GGUF_FILE} Q4_K_M
 
-echo "${GREEN}[+] Done! Saved in ${LATEST_SNAPSHOT}${RESET}"
+echo -e "${GREEN}[+] Done! Saved in ${LATEST_SNAPSHOT}${RESET}"
