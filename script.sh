@@ -54,4 +54,4 @@ echo "FROM ${LATEST_GGUF_FILE}" > /medi.Modelfile
 ollama create medi -f /medi.Modelfile
 # ollama run medi
 
-echo -e "${GREEN}[+] Ready to serve model! Type ${RED}ollama run medichat${GREEN} to run model in your terminal.${RESET}"
+echo -e "${GREEN}[+] Ready to serve model! Type ${RED}ollama run medi${GREEN} to run model in your terminal.${RESET}"
