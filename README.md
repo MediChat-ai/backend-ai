@@ -8,7 +8,7 @@ runpod 계정에 $10 이상 과금 후 아래의 과정을 진행합니다.
 
 ![runpod_1.png](https://firebasestorage.googleapis.com/v0/b/storage-f1f46.appspot.com/o/runpod_1.png?alt=media&token=31d1e4e0-5321-4cd1-be11-b1e774d99629)
 
-충분한 storage 환경을 위해 추가 스토리지를 구매해야 합니다.  Create Network Volume > `EU-SE-1` 선택, 30GB를 할당합니다.
+충분한 storage 환경을 위해 추가 스토리지를 구매해야 합니다.  Create Network Volume > `EU-SE-1` 선택, 100GB를 할당합니다.
 
 ![runpod_2.png](https://firebasestorage.googleapis.com/v0/b/storage-f1f46.appspot.com/o/runpod_2.png?alt=media&token=ba016932-ccd1-4bc3-9f12-2687212d781d)
 
