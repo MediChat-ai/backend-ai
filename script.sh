@@ -16,7 +16,7 @@ apt-get install git wget unzip -y
 cd $HOME
 
 echo -e "${GREEN}[+] Downloading AI Model...${RESET}"
-wget 'https://firebasestorage.googleapis.com/v0/b/storage-f1f46.appspot.com/o/download_model.py?alt=media&token=2a13212d-0de4-451d-9dfc-a7c4fc1dbade' -O download_model.py
+wget 'https://raw.githubusercontent.com/MediChat-ai/backend-ai/refs/heads/main/download_model.py' -O download_model.py
 python3 -m pip install huggingface_hub
 python3 download_model.py $1
 
