@@ -27,5 +27,5 @@ deploy 한 서버 화면의 Connect 버튼을 클릭하면 웹 터미널에 접�
 runpod 에서 서버를 deploy 한 최초 상태인 `root` 유저로 실행해야 합니다.
 
 ```sh
-curl -sSL "https://firebasestorage.googleapis.com/v0/b/storage-f1f46.appspot.com/o/script.sh?alt=media&token=95b70c76-0cdc-4664-8171-2cad07a733ae" | bash -s <model_name>
+curl -sSL "https://raw.githubusercontent.com/MediChat-ai/backend-ai/refs/heads/main/script.sh" | bash -s <model_name>
 ```
