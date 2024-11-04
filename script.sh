@@ -44,4 +44,13 @@ echo -e "${GREEN}[+] Quantizing model...${RESET}"
 LATEST_GGUF_FILE=$(find "$LATEST_SNAPSHOT" -type f -name "*.gguf" -printf "%T@ %p\n" | sort -n | tail -1 | awk '{print $2}')
 ./llama-quantize ${LATEST_GGUF_FILE} Q4_K_M
 
-echo -e "${GREEN}[+] Done! Saved in ${LATEST_SNAPSHOT}${RESET}"
+echo -e "${GREEN}[+] Quantized model saved in ${LATEST_SNAPSHOT}${RESET}"
+
+echo -e "${GREEN}[+] Installing ollama...${RESET}"
+curl -fsSL https://ollama.com/install.sh | sh
+ollama serve &
+LATEST_GGUF_FILE=$(find "$LATEST_SNAPSHOT" -type f -name "*.gguf" -printf "%T@ %p\n" | sort -n | tail -1 | awk '{print $2}')
+echo "FROM ${LATEST_GGUF_FILE}" > medichat.Modelfile
+# ollama run medichat
+
+echo -e "${GREEN}[+] Ready to serve model! Type ${RED}ollama run medichat${GREEN} to run model in your terminal.${RESET}"
